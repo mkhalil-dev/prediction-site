@@ -4,9 +4,6 @@ const namebox = document.getElementById("name");
 const results = document.getElementById("results");
 let userName;
 
-// fetching random dog image and replacing it
-
-
 // Detecting username
 namebox.addEventListener('input', function(event){
     userName = event.target.value;
