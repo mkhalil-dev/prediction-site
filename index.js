@@ -14,10 +14,12 @@ prdctBtn.addEventListener('click', function(){predict(userName)});
 
 // Main Function, gets called on click
 function predict(userName){
-    if (!userName){
-        window.confirm("Your Name cannot be empty...");
+    if (!userName || hasNumber(userName)){
+        window.confirm("Your Name cannot be empty and can't contain numbers...");
         return;
     }
+    
+    console.log(parseInt(userName))
     prdctBtn.innerText = "Predicting...";
     results.innerHTML = "";
     (async () => {
@@ -26,7 +28,6 @@ function predict(userName){
         gender = capitalize(gender);
         let age = await getAge(userName);
         let nationality = await getNationality(userName);
-        console.log(nationality)
         nationality.forEach((element,index) => {
             if (index < 2){
                 (async () => {
@@ -83,4 +84,9 @@ function capitalize(str) {
     const capitalized = str.charAt(0).toUpperCase() + str.slice(1);
 
     return capitalized;
+}
+
+function hasNumber(str) {
+
+    return /\d/.test(str)
 }

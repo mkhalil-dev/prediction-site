@@ -21,6 +21,7 @@ body{
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-color: #2A5B64;
 }
 
 h1, h2, h3{
@@ -95,9 +96,6 @@ input{
 }
 
 @media only screen and (max-width: 600px) {
-  body {
-    background-color: #2A5B64;
-  }
   .results > div{
     margin: 30px;
   }
