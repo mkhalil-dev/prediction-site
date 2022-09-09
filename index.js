@@ -5,11 +5,7 @@ const results = document.getElementById("results");
 let userName;
 
 // fetching random dog image and replacing it
-fetch('https://dog.ceo/api/breeds/image/random')
-  .then((response) => response.json())
-  .then((data) => {
-      dogImg.src = data.message
-  });
+
 
 // Detecting username
 namebox.addEventListener('input', function(event){

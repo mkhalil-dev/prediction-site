@@ -15,7 +15,16 @@
             <h1>Predictor</h1>
             <h2>Don't ask how we know.</h2>
             <h3>Before we do our magic, check our Dogs out.</h3>
-            <img id="hero-img" src="https:\/\/images.dog.ceo\/breeds\/whippet\/n02091134_17638.jpg" alt="imgplaceholder"><br>
+            <img id="hero-img" src="https://images.dog.ceo/breeds/affenpinscher/n02110627_13417.jpg" alt="Dog Image"><br>
+            <!-- Trying to load the dog img as fast as possible-->
+            <script type="module">
+                fetch('https://dog.ceo/api/breeds/image/random')
+                    .then((response) => response.json())
+                    .then((data) => {
+                        dogImg.src = data.message
+                    });
+            </script>
+            <!--End OF SCRIPT-->
             <div>
                 <label for="name">Enter your Name:</label>
                 <input type="text" id="name" name="name" placeholder="Your Name">
