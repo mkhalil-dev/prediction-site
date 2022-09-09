@@ -15,8 +15,15 @@ namebox.addEventListener('input', function(event){
     userName = event.target.value;
 });
 
-prdctBtn.addEventListener('click', function(){predict(userName)});
+// Event listener for button click
+prdctBtn.addEventListener('click', function(){getNationality(userName)});
 
-function predict(name) {
-    console.log(name)
-};
+// Get Nationality
+let nationality;
+async function getNationality(name) {
+	const response = await fetch(
+		'https://api.nationalize.io/?name='+name,
+	);
+    const data = await response.json()
+    console.log(data.country)
+}
