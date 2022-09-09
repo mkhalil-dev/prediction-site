@@ -43,6 +43,10 @@ h2{
   padding: 5vw 10vh;
 }
 
+.results > div {
+  border: 1 solid;
+}
+
 #hero-img{
   height: 30vh;
 }
