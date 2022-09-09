@@ -14,6 +14,7 @@
 
 body{
   font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
 }
 
 h1, h2{
@@ -37,7 +38,9 @@ h2{
 .results{
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-around;
+  padding: 5vw 10vh;
 }
 
 #hero-img{
