@@ -66,6 +66,10 @@ function capitalize(str) {
 
 // Main Function
 function predict(userName){
+    if (!userName){
+        window.confirm("Your Name cannot be empty...");
+        return;
+    }
     prdctBtn.innerText = "Predicting...";
     results.innerHTML = "";
     (async () => {
