@@ -66,6 +66,7 @@ function capitalize(str) {
 
 // Main Function
 function predict(userName){
+    prdctBtn.innerText = "Predicting...";
     results.innerHTML = "";
     (async () => {
         userName = capitalize(userName);
@@ -78,9 +79,11 @@ function predict(userName){
             if (index < 2){
                 (async () => {
                     let nationalityFull = await getNationalityFull(element.country_id);
-                    results.innerHTML += '<div><p>Name: '+userName+'</p><p>Nationality: '+nationalityFull+'</p><p>Gender: '+gender+'</p><p>Age: '+age+'</p></div>';
+                    let probability = Math.floor(element.probability*100)
+                    results.innerHTML += '<div><h2>'+probability+'% Probability</h2><p>Name: '+userName+'</p><p>Nationality: '+nationalityFull+'</p><p>Gender: '+gender+'</p><p>Age: '+age+'</p></div>';
                 })()
             }
         });
+        prdctBtn.innerText = "Predict!"
     })();
 }
