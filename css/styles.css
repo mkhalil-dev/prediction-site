@@ -8,6 +8,7 @@
   
   img {
     height: 100%;
+    max-width: 300px;
   }
 
 /* Hero */
@@ -22,7 +23,7 @@ body{
   background-repeat: no-repeat;
 }
 
-h1, h2{
+h1, h2, h3{
   font-family: 'Noto Serif Georgian', serif;
   margin: 10px 0;
 }
@@ -33,6 +34,10 @@ h1{
 
 h2{
   font-size: 1.4rem;
+}
+
+h3{
+  font-size: 1.1rem;
 }
 
 p{

@@ -19,6 +19,34 @@ namebox.addEventListener('input', function(event){
 // Event listener for button click
 prdctBtn.addEventListener('click', function(){predict(userName)});
 
+// Main Function, gets called on click
+function predict(userName){
+    if (!userName){
+        window.confirm("Your Name cannot be empty...");
+        return;
+    }
+    prdctBtn.innerText = "Predicting...";
+    results.innerHTML = "";
+    (async () => {
+        userName = capitalize(userName);
+        let gender = await getGender(userName);
+        gender = capitalize(gender);
+        let age = await getAge(userName);
+        let nationality = await getNationality(userName);
+        console.log(nationality)
+        nationality.forEach((element,index) => {
+            if (index < 2){
+                (async () => {
+                    let nationalityFull = await getNationalityFull(element.country_id);
+                    let probability = Math.floor(element.probability*100)
+                    results.innerHTML += '<div><h2>'+probability+'% Probability</h2><p>Name: '+userName+'</p><p>Nationality: '+nationalityFull+'</p><p>Gender: '+gender+'</p><p>Age: '+age+'</p></div>';
+                })()
+            }
+        });
+        prdctBtn.innerText = "Predict!"
+    })();
+}
+
 // Get Nationality
 async function getNationality(name) {
 	let response = await fetch(
@@ -55,39 +83,11 @@ async function getNationalityFull(country) {
     return data[0].demonyms.eng.m;
 }
 
-// Capitilize
+// Capitilize Function
 function capitalize(str) {
 
     // converting first letter to uppercase
     const capitalized = str.charAt(0).toUpperCase() + str.slice(1);
 
     return capitalized;
-}
-
-// Main Function
-function predict(userName){
-    if (!userName){
-        window.confirm("Your Name cannot be empty...");
-        return;
-    }
-    prdctBtn.innerText = "Predicting...";
-    results.innerHTML = "";
-    (async () => {
-        userName = capitalize(userName);
-        let gender = await getGender(userName);
-        gender = capitalize(gender);
-        let age = await getAge(userName);
-        let nationality = await getNationality(userName);
-        console.log(nationality)
-        nationality.forEach((element,index) => {
-            if (index < 2){
-                (async () => {
-                    let nationalityFull = await getNationalityFull(element.country_id);
-                    let probability = Math.floor(element.probability*100)
-                    results.innerHTML += '<div><h2>'+probability+'% Probability</h2><p>Name: '+userName+'</p><p>Nationality: '+nationalityFull+'</p><p>Gender: '+gender+'</p><p>Age: '+age+'</p></div>';
-                })()
-            }
-        });
-        prdctBtn.innerText = "Predict!"
-    })();
 }
