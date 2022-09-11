@@ -24,7 +24,7 @@ body{
   background-color: #152D30;
 }
 
-h1, h2, h3{
+h1, h2, h3, h4{
   font-family: 'Noto Serif Georgian', serif;
   margin: 10px 0;
 }
@@ -35,6 +35,11 @@ h1{
 
 h2{
   font-size: 1.4rem;
+}
+
+h4{
+  color: aqua;
+  margin-bottom: 10px;
 }
 
 p{
@@ -53,11 +58,14 @@ button{
 }
 
 .btn{
-  background-color: red;
+  background-color: #00CCFF;
+  padding: 6px 20px 6px 20px;
+  color: #fff;
+  border-radius: 15px;
 }
 
 .btn:hover{
-  background-color: yellow;
+  background-color: #2A5B64;
 }
 
 .main-container{
@@ -117,17 +125,18 @@ button{
   color: lightgreen;
 }
 
+#bored {
+  text-align: center;
+  margin-bottom: 20px;
+}
 
 #hero-img{
   height: 30vh;
 }
 
 #signin{
-  background-color: #00CCFF;
   padding: 6px 30px 6px 30px;
   font-size: 1.5rem;
-  color: #fff;
-  border-radius: 15px;
 }
 
 #signin:hover {

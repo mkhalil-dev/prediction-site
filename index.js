@@ -1,6 +1,9 @@
 const mainDiv = document.getElementById("switch-div");
 let user, pass;
 
+
+
+
 logInPage();
 // LogIn Page Init
 function logInPage(){
@@ -16,6 +19,7 @@ function logInPage(){
     document.getElementById("signup").addEventListener('click', signUp)
 }
 
+//Sign in function
 function signIn(){
     if(localStorage.getItem(user) == pass){
         document.getElementById("end").innerHTML = '<p class="success">You have logged in successfully, please wait till you are redirected...</p>'
@@ -30,6 +34,7 @@ function signIn(){
     }
 }
 
+//Sign up function
 function signUp(){
     //Sign up page HTML
     mainDiv.innerHTML = '<div class="main-container margin"><h3>Create your Account!</h3><div><input type="text" class="signin-input" name="user" id="user" placeholder="Username"><input type="password" class="signin-input" name="pass" id="pass" placeholder="Password"></div><button id="signin">Sign Up</button></div><div id="end"></div></div>'
@@ -49,20 +54,28 @@ function signUp(){
         }
         document.getElementById("signin").removeEventListener('click', credChecker)
         localStorage.setItem(user, pass);
-        document.getElementById("end").innerHTML = '<p class="success">Your account has been created successfully, please wait 5 seconds to be redirected...</p>'
+        document.getElementById("end").innerHTML = '<p class="success">Your account has been created successfully, please wait 3 seconds to be redirected...</p>'
         setTimeout(() => {
             logInPage();
-        }, 5000)
+        }, 3000)
     }
 }    
 
+//Main Site
 function  mainSite(){
+
     (async () => {
         try {
+            //get user IP
+            const responseIP = await axios.get('https://api.ipify.org/?format=json')
+            console.log(responseIP.data.ip)
+            //get dog image
             const response = await fetch('https://dog.ceo/api/breeds/image/random')
             const data = await response.json()
-            mainDiv.innerHTML = '<img id="hero-img" src="'+data.message+'" alt="Dog Image"><br>'
-            mainDiv.insertAdjacentHTML('beforeend', '<div><label for="name">Enter your Name: </label><input type="text" id="name" name="name" placeholder="Your Name"> <button class="btn" id="predict">Predict!</button></div><div class="results" id="results"></div>')
+            //change website layout
+            mainDiv.innerHTML = '<h4>Your IP: '+responseIP.data.ip+'</h4>';
+            mainDiv.insertAdjacentHTML('beforeend', '<img id="hero-img" src="'+data.message+'" alt="Dog Image"><br>');
+            mainDiv.insertAdjacentHTML('beforeend', '<div><div id="bored"><button class="btn">Bored?</button></div><label for="name">Enter your Name: </label><input type="text" id="name" name="name" placeholder="Your Name"> <button class="btn" id="predict">Predict!</button></div><div class="results" id="results"></div></div>')
         } catch (error) {
             console.log("error")
         }
