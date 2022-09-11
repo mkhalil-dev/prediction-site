@@ -83,7 +83,6 @@ function  mainSite(){
             try {
                 //get something to do
                 const response = await axios.get('https://www.boredapi.com/api/activity')
-                console.log(response.data.activity)
                 //Add Website Layout
                 document.getElementById("bored").innerHTML = '<p>'+response.data.activity+'</p>';
             } catch (error) {
