@@ -21,7 +21,7 @@ body{
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-color: #2A5B64;
+  background-color: #152D30;
 }
 
 h1, h2, h3{
@@ -70,6 +70,14 @@ button{
   margin-top: 10vh;
 }
 
+.margin > div{
+  text-align: center;
+}
+
+.margin > p{
+  text-align: center;
+}
+
 .results{
   display: flex;
   flex-direction: row;
@@ -106,7 +114,7 @@ button{
 }
 
 .success{
-  color: green;
+  color: lightgreen;
 }
 
 
@@ -127,7 +135,7 @@ button{
 }
 
 #signup{
-  color: #2A5B64;
+  color: #00CCFF;
   cursor: pointer;
 }
 
