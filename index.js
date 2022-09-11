@@ -141,7 +141,7 @@ function  mainSite(){
                 'https://api.nationalize.io/?name='+name,
             );
             let data = await response.json();
-            return (await data.country);
+            return data.country;
         }
 
         // Get Age
@@ -150,7 +150,7 @@ function  mainSite(){
                 'https://api.agify.io/?name='+name,
             );
             let data = await response.json();
-            return (await data.age);
+            return data.age;
         }
 
         // Get Gender
@@ -159,7 +159,7 @@ function  mainSite(){
                 'https://api.genderize.io?name='+name,
             );
             let data = await response.json();
-            return (await data.gender);
+            return data.gender;
         }
 
         //Turn Country ID into Nationality
