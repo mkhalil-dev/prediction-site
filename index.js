@@ -154,10 +154,9 @@ function  mainSite(){
             return capitalized;
         }
 
-        //Check if str has a number
+        //Check if str has a number or spaces
         function hasNumber(str) {
-
-            return /\d/.test(str)
+            return /[0-9 ]+/.test(str)
         }
     })();
 }
