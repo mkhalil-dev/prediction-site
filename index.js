@@ -1,8 +1,14 @@
+const mainDiv = document.getElementById("main-div")
 const dogImg = document.getElementById("hero-img"); 
 const prdctBtn = document.getElementById("predict");
 const namebox = document.getElementById("name");
 const results = document.getElementById("results");
 let userName;
+
+
+//Adding Input HTML Elements
+mainDiv.insertAdjacentHTML('beforeend', '<div><label for="name">Enter your Name:</label><input type="text" id="name" name="name" placeholder="Your Name"><button class="btn" id="predict">Predict!</button></div>');
+
 
 // Detecting username
 namebox.addEventListener('input', function(event){
@@ -86,6 +92,7 @@ function capitalize(str) {
     return capitalized;
 }
 
+//Check if str has a number
 function hasNumber(str) {
 
     return /\d/.test(str)
