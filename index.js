@@ -1,10 +1,9 @@
 const mainDiv = document.getElementById("switch-div");
 let user, pass;
 
-
-
-
+//Load the page
 logInPage();
+
 // LogIn Page Init
 function logInPage(){
     //Insert Page HTML
@@ -68,17 +67,31 @@ function  mainSite(){
         try {
             //get user IP
             const responseIP = await axios.get('https://api.ipify.org/?format=json')
-            console.log(responseIP.data.ip)
             //get dog image
             const response = await fetch('https://dog.ceo/api/breeds/image/random')
             const data = await response.json()
             //change website layout
             mainDiv.innerHTML = '<h4>Your IP: '+responseIP.data.ip+'</h4>';
             mainDiv.insertAdjacentHTML('beforeend', '<img id="hero-img" src="'+data.message+'" alt="Dog Image"><br>');
-            mainDiv.insertAdjacentHTML('beforeend', '<div><div id="bored"><button class="btn">Bored?</button></div><label for="name">Enter your Name: </label><input type="text" id="name" name="name" placeholder="Your Name"> <button class="btn" id="predict">Predict!</button></div><div class="results" id="results"></div></div>')
+            mainDiv.insertAdjacentHTML('beforeend', '<div><div id="bored"><button class="btn" id="bored-btn">Bored?</button></div><label for="name">Enter your Name: </label><input type="text" id="name" name="name" placeholder="Your Name"> <button class="btn" id="predict">Predict!</button></div><div class="results" id="results"></div></div>')
         } catch (error) {
             console.log("error")
-        }
+        }        
+
+        //Bored Text
+        async function getBoredActivity(){
+            try {
+                //get something to do
+                const response = await axios.get('https://www.boredapi.com/api/activity')
+                console.log(response.data.activity)
+                //Add Website Layout
+                document.getElementById("bored").innerHTML = '<p>'+response.data.activity+'</p>';
+            } catch (error) {
+                console.log(error)
+            };
+        };
+
+        document.getElementById("bored-btn").addEventListener('click', getBoredActivity);
 
         // Settings my Const
         const prdctBtn = document.getElementById("predict");

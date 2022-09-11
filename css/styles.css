@@ -22,6 +22,7 @@ body{
   background-position: center;
   background-repeat: no-repeat;
   background-color: #152D30;
+  color: white;
 }
 
 h1, h2, h3, h4{
@@ -72,6 +73,7 @@ button{
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
 }
 
 .margin{
