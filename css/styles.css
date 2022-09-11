@@ -16,7 +16,7 @@
 body{
   font-family: 'Poppins', sans-serif;
   font-size: 1.2rem;
-  background-image: url('images/bgimg.jpg');
+  background:linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/bgimg.jpg');
   height: 100vh;
   background-size: cover;
   background-position: center;
@@ -37,10 +37,6 @@ h2{
   font-size: 1.4rem;
 }
 
-h3{
-  font-size: 1.1rem;
-}
-
 p{
   padding: 10px;
 }
@@ -49,12 +45,15 @@ input{
   padding: 5px 5px;
 }
 
-.btn{
+button{
   border: 0;
   border-radius: 10px;
   padding: 6px 12px;
-  background-color: red;
   cursor: pointer;
+}
+
+.btn{
+  background-color: red;
 }
 
 .btn:hover{
@@ -65,6 +64,10 @@ input{
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.margin{
+  margin-top: 10vh;
 }
 
 .results{
@@ -78,6 +81,7 @@ input{
 .results > div {
   border: 1px solid;
   padding: 0 30px 20px 30px;
+  margin: 0 30px;
   text-align: center;
   width: 350px;
   color: #FF491F;
@@ -91,9 +95,46 @@ input{
   margin: 10px 5vw;
 }
 
+.signin-input{
+  border: 0;
+  border-radius: 5px;
+  margin: 20px 15px;
+}
+
+.fail{
+  color: red;
+}
+
+.success{
+  color: green;
+}
+
+
 #hero-img{
   height: 30vh;
 }
+
+#signin{
+  background-color: #00CCFF;
+  padding: 6px 30px 6px 30px;
+  font-size: 1.5rem;
+  color: #fff;
+  border-radius: 15px;
+}
+
+#signin:hover {
+  background-color: #2A5B64;
+}
+
+#signup{
+  color: #2A5B64;
+  cursor: pointer;
+}
+
+#end{
+  margin: 10px;
+}
+
 
 @media only screen and (max-width: 600px) {
   .results > div{

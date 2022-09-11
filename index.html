@@ -11,23 +11,13 @@
 </head>
 <body>
     <div class="container">
-        <div class="main-container" id="main-div">
+        <div class="main-container">
             <h1>Predictor</h1>
             <h2>Don't ask how we know.</h2>
-            <h3>Before we do our magic, check our Dogs out.</h3>
-            <img id="hero-img" src="https://images.dog.ceo/breeds/affenpinscher/n02110627_13417.jpg" alt="Dog Image"><br>
-            <!-- Trying to load the dog img as fast as possible-->
-            <script type="module">
-                fetch('https://dog.ceo/api/breeds/image/random')
-                    .then((response) => response.json())
-                    .then((data) => {
-                        dogImg.src = data.message
-                    });
-            </script>
-            <!--End OF SCRIPT-->
         </div>
-        <div class="results" id="results">
+        <div class="main-container" id="switch-div">
         </div>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="index.js"></script>
     </div>
 </body>
